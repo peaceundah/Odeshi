@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODESHI | Wear Your Resilience</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .noise-bg {
+            background-image: url("https://www.neweracap.co.uk/cdn/shop/files/60771638_3QL.jpg?v=1768826157&width=1920");
+        }
+
+        /* --- THE DYNAMIC ISLAND (The requested floating bar) --- */
+        #dynamic-island {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #dynamic-island:hover {
+            background: rgba(25, 25, 25, 0.9);
+            transform: translateX(-50%) translateY(4px) scale(1.02);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        /* Social Sidebar Styling */
+        .social-line {
+            height: 80px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #27272a, transparent);
+        }
+
+        .stroke-text {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600 selection:text-white">
+
+    <!-- GLOBAL HEADER LAYOUT -->
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center">
+        
+        <!-- FAR LEFT: LOGO -->
+        <div class="z-50">
+            <a href="#" class="group">
+                <h1 class="text-3xl font-black tracking-tighter italic uppercase font-mono mix-blend-difference">
+                    ODESHI
+                </h1>
+            </a>
+        </div>
+
+        <!-- FAR RIGHT: ACCOUNT, WISHLIST, CART -->
+        <div class="flex items-center gap-4 md:gap-7 z-50">
+            <button class="text-zinc-400 hover:text-white transition-all transform hover:scale-110" title="Account">
+                <i data-lucide="circle-user" class="w-6 h-6"></i>
+            </button>
+            <button class="text-zinc-400 hover:text-white transition-all transform hover:scale-110 relative" title="Wishlist">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+            </button>
+            <button class="text-zinc-400 hover:text-white transition-all transform hover:scale-110" title="Cart">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- THE DYNAMIC ISLAND (CENTRAL FLOATING BAR) -->
+    <!-- This is the bar that carries the nav links and search button -->
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="#" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Home</a>
+            <a href="#" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Shop</a>
+            <a href="#" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white whitespace-nowrap hidden sm:block">Behind the Scenes</a>
+            <a href="#" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hidden sm:block">Connect</a>
+            
+            <div class="w-[1px] h-4 bg-zinc-800 mx-2"></div>
+            
+            <button class="p-2 text-zinc-400 hover:text-white transition-colors">
+                <i data-lucide="search" class="w-4 h-4"></i>
+            </button>
+        </nav>
+    </div>
+
+    <!-- SOCIAL SIDEBAR (VERTICAL RIGHT) -->
+    <aside class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-8">
+        <div class="social-line"></div>
+        <a href="#" class="text-zinc-600 hover:text-white transition-all transform hover:-translate-x-2">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+        </a>
+        <a href="#" class="text-zinc-600 hover:text-white transition-all transform hover:-translate-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>
+        </a>
+        <a href="#" class="text-zinc-600 hover:text-white transition-all transform hover:-translate-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+        </a>
+        <div class="social-line"></div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <!-- Background -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=2076&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 grayscale scale-110 animate-[pulse_10s_ease-in-out_infinite]" alt="hero">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-black/80"></div>
+                <div class="absolute inset-0 noise-bg opacity-20 pointer-events-none"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-6 mt-20">
+                <p class="text-zinc-500 font-mono text-[10px] tracking-[0.5em] mb-6 uppercase">Future Classics • Drop 01</p>
+                <h1 class="text-7xl md:text-9xl lg:text-[12rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
+                    UNREAL<br><span class="stroke-text">STREETS</span>
+                </h1>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-16">
+                    <button class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95">
+                        Shop Odeshi
+                    </button>
+                    <button class="group border border-zinc-800 px-12 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-zinc-900 transition-all flex items-center gap-3">
+                        Lookbook
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 group-hover:rotate-45 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
+                <div class="w-[1px] h-16 bg-white"></div>
+                <span class="text-[8px] uppercase tracking-[1em] font-bold">SCROLL</span>
+            </div>
+        </section>
+
+        <!-- PRODUCT SECTION PREVIEW -->
+        <section class="py-32 bg-black px-6 md:px-20 relative overflow-hidden">
+             <!-- Background text for style -->
+            <div class="absolute -left-10 top-0 text-[20rem] font-black opacity-[0.02] select-none pointer-events-none tracking-tighter">01</div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 relative z-10">
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-2">Featured Grails</h2>
+                    <p class="text-zinc-500 font-mono text-xs uppercase tracking-widest">Selected styles from the resilience collection</p>
+                </div>
+                <a href="#" class="hidden md:block text-zinc-400 hover:text-white transition-colors font-bold text-[10px] tracking-[0.2em] uppercase border-b border-zinc-800 pb-2">View Full Shop</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
+                <!-- Product 1 -->
+                <div class="group">
+                    <div class="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 relative border border-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold border border-white/10">LIMITED</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-xl uppercase tracking-tighter">Odeshi Core Hoodie</h4>
+                            <p class="text-zinc-500 text-xs">Heavyweight Cotton / Black</p>
+                        </div>
+                        <span class="font-mono text-lg font-bold text-zinc-300">$120</span>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group">
+                    <div class="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 relative border border-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1552374196-c6e7491e5a88?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="mt-6 flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-xl uppercase tracking-tighter">Tactical Utility Vest</h4>
+                            <p class="text-zinc-500 text-xs">Multi-Pocket / Technical</p>
+                        </div>
+                        <span class="font-mono text-lg font-bold text-zinc-300">$165</span>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group">
+                    <div class="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 relative border border-zinc-900">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="mt-6 flex justify-between items-start">
+                        <div>
+                            <h4 class="font-bold text-xl uppercase tracking-tighter">Archival Graphic Tee</h4>
+                            <p class="text-zinc-500 text-xs">Oversized / Screenprint</p>
+                        </div>
+                        <span class="font-mono text-lg font-bold text-zinc-300">$60</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-24 px-10 border-t border-zinc-900">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <h1 class="text-5xl font-black italic uppercase font-mono tracking-tighter mb-6">ODESHI</h1>
+                <p class="text-zinc-500 max-w-sm mb-8">Forged in the heart of the city. We create armor for the bold, the defiant, and the unseen.</p>
+                <div class="flex gap-4">
+                     <div class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer"><i data-lucide="instagram" class="w-4 h-4"></i></div>
+                     <div class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer"><i data-lucide="twitter" class="w-4 h-4"></i></div>
+                </div>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Explore</h5>
+                <ul class="flex flex-col gap-3 text-zinc-500 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Latest Drops</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Lookbook</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Behind the Scenes</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Archive</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Support</h5>
+                <ul class="flex flex-col gap-3 text-zinc-500 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Shipping</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-20 pt-10 border-t border-zinc-900 text-center">
+            <p class="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.4em]">© 2024 ODESHI WORLDWIDE CLOTHING CO. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Island Scroll Animation
+        const island = document.getElementById('dynamic-island');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                // Squeeze the island slightly on scroll for that "dynamic" feel
+                island.style.paddingLeft = '0.5rem';
+                island.style.paddingRight = '0.5rem';
+                island.style.transform = 'translateX(-50%) translateY(4px) scale(0.95)';
+                island.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                island.style.paddingLeft = '1rem';
+                island.style.paddingRight = '1rem';
+                island.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+                island.style.background = 'rgba(15, 15, 15, 0.7)';
+            }
+        });
+    </script>
+</body>
+</html>
