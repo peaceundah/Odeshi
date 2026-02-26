@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETURNS | ODESHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600">
+
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <a href="index.html"><img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Logo"></a>
+        <div class="flex items-center gap-7"><i data-lucide="circle-user" class="w-6 h-6"></i><i data-lucide="heart" class="w-6 h-6"></i><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+    </div>
+
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Home</a>
+            <a href="shop.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Shop</a>
+            <a href="bts.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">BTS</a>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-6 md:px-20 max-w-4xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-16">Returns</h1>
+        
+        <div class="space-y-16">
+            <section>
+                <h3 class="font-bold uppercase tracking-widest text-xs mb-6 text-zinc-500">Policy Overview</h3>
+                <p class="text-2xl font-light leading-snug">We accept returns within <span class="text-white font-black italic">14 days</span> of delivery. All items must be in original, unworn condition with tags attached.</p>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border border-zinc-900 p-8 rounded-2xl">
+                    <i data-lucide="x-circle" class="w-8 h-8 mb-6 text-red-600"></i>
+                    <h4 class="font-bold uppercase text-[10px] tracking-widest mb-4">No Returns</h4>
+                    <p class="text-xs text-zinc-500 leading-relaxed">Items marked "Final Sale" or part of a limited archive drop are not eligible for return or exchange.</p>
+                </div>
+                <div class="border border-zinc-900 p-8 rounded-2xl">
+                    <i data-lucide="refresh-cw" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                    <h4 class="font-bold uppercase text-[10px] tracking-widest mb-4">Exchanges</h4>
+                    <p class="text-xs text-zinc-500 leading-relaxed">Due to limited stock, we cannot guarantee exchanges. We recommend returning for a refund and re-ordering.</p>
+                </div>
+                <div class="border border-zinc-900 p-8 rounded-2xl">
+                    <i data-lucide="truck" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                    <h4 class="font-bold uppercase text-[10px] tracking-widest mb-4">Shipping</h4>
+                    <p class="text-xs text-zinc-500 leading-relaxed">Return shipping costs are the responsibility of the customer unless the item arrived damaged.</p>
+                </div>
+            </div>
+
+            <section class="pt-12 border-t border-zinc-900">
+                <h3 class="font-bold uppercase tracking-widest text-xs mb-6">Initiate Return</h3>
+                <p class="text-zinc-500 mb-8">To start a return, please visit our <a href="connect.html" class="text-white underline decoration-zinc-800 hover:decoration-white transition-all">Support Portal</a> with your order number and identity.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-black py-20 px-10 border-t border-zinc-900 text-center text-[10px] font-mono text-zinc-700 tracking-[0.4em]">
+        © 2026 ODESHI CO. RETURNS CENTER
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

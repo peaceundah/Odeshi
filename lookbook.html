@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOKBOOK | ODESHI</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        .nav-link { opacity: 0.6; transition: 0.3s; }
+        .nav-link:hover { opacity: 1; }
+        .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
+        
+        .masonry { column-count: 1; column-gap: 1.5rem; }
+        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600">
+
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <a href="index.html"><img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Logo"></a>
+        <div class="flex items-center gap-7"><i data-lucide="circle-user" class="w-6 h-6"></i><i data-lucide="heart" class="w-6 h-6"></i><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+    </div>
+
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Home</a>
+            <a href="shop.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Shop</a>
+            <a href="bts.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white whitespace-nowrap hidden sm:block">Behind the Scenes</a>
+            <a href="connect.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hidden sm:block">Connect</a>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-6 md:px-20">
+        <div class="text-center mb-20">
+            <h1 class="text-7xl md:text-9xl font-black uppercase tracking-tighter italic">Visage</h1>
+            <p class="text-zinc-500 font-mono text-xs uppercase tracking-widest mt-4">Visual Archives & Collaborative Works</p>
+        </div>
+
+        <div class="masonry">
+            <!-- Brand Shoot 1 -->
+            <div class="masonry-item group relative overflow-hidden rounded-3xl">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" class="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="text-[10px] font-mono uppercase tracking-widest bg-white text-black px-3 py-1 rounded-full">DROP 01: CORE</p>
+                </div>
+            </div>
+
+            <!-- Collaboration -->
+            <div class="masonry-item group relative overflow-hidden rounded-3xl aspect-square bg-zinc-900 flex items-center justify-center p-12 text-center">
+                <div class="z-10">
+                    <h3 class="text-3xl font-black uppercase tracking-tighter mb-4">ODESHI X <br>CYBERPUNK</h3>
+                    <p class="text-xs text-zinc-500 font-mono uppercase tracking-tighter">Limited Capsule Collaboration</p>
+                </div>
+                <div class="absolute inset-0 bg-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <!-- Instagram Placeholder -->
+            <div class="masonry-item group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 p-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-zinc-800"></div>
+                    <span class="text-[10px] font-bold uppercase">@odeshico</span>
+                </div>
+                <div class="aspect-square bg-zinc-900 rounded-xl mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+                <div class="flex gap-4 text-zinc-500"><i data-lucide="heart" class="w-4 h-4"></i><i data-lucide="message-circle" class="w-4 h-4"></i></div>
+            </div>
+
+            <!-- Brand Shoot 2 -->
+            <div class="masonry-item group relative overflow-hidden rounded-3xl">
+                <img src="https://images.unsplash.com/photo-1529139572175-308ec2701f40?q=80&w=800" class="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="text-[10px] font-mono uppercase tracking-widest bg-white text-black px-3 py-1 rounded-full">Editorial 2024</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-20 px-10 border-t border-zinc-900 text-center">
+        <img src=".src/odeshi-2.png" class="h-4 w-auto mx-auto mix-blend-difference mb-8" alt="Logo">
+        <p class="text-[10px] font-mono text-zinc-700 tracking-[0.4em]">© 2026 ODESHI CO. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

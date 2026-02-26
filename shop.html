@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP | ODESHI</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        #dynamic-island {
+            background: rgba(15, 15, 15, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #dynamic-island:hover {
+            background: rgba(25, 25, 25, 0.9);
+            transform: translateX(-50%) translateY(4px) scale(1.02);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 12px;
+            height: 2px;
+            background: #fff;
+            transform: translateX(-50%);
+        }
+
+        .header-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.55), rgba(0,0,0,0));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .product-card {
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .product-visible {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+            position: relative;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #df5858;
+            color: #fff;
+            transform: scale(1.05);
+            border: #000;
+        }
+
+        .filter-btn.active:hover {
+            background-color: white;
+            color: black;  
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600 selection:text-white">
+
+    <!-- GLOBAL HEADER LAYOUT -->
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <div class="z-50">
+            <a href="index.html">
+                <img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Odeshi logo">
+            </a>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-7 z-50">
+            <button class="text-white hover:text-zinc-300 transition-all transform hover:scale-110"><i data-lucide="circle-user" class="w-6 h-6"></i></button>
+            <button class="text-white hover:text-zinc-300 transition-all transform hover:scale-110 relative">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+            </button>
+            <button class="text-white hover:text-zinc-300 transition-all transform hover:scale-110"><i data-lucide="shopping-cart" class="w-6 h-6"></i></button>
+        </div>
+    </div>
+
+    <!-- DYNAMIC ISLAND -->
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Home</a>
+            <a href="shop.html" class="nav-link active px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Shop</a>
+            <a href="bts.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white whitespace-nowrap hidden sm:block">Behind the Scenes</a>
+            <a href="connect.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hidden sm:block">Connect</a>
+            <div class="w-[1px] h-4 bg-zinc-800 mx-2"></div>
+            <button class="p-2 text-zinc-400 hover:text-white"><i data-lucide="search" class="w-4 h-4"></i></button>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-3 md:px-12">
+        <!-- Title & Filters -->
+        <header class="mb-16">
+            <h1 class="text-4xl md:text-6xl font-black uppercase mb-16">The DROP</h1>
+            <!--primary filter toggle-->
+            <div class="flex flex-wrap gap-3 mb-5 pb-8 border-b border-zinc-800">
+                <button class="filter-btn primary-toggle px-6 py-2 rounded-full border border-white text-[10px] font-bold uppercase tracking-widest transition-all hover:text-white" data-target="products-filters" data-filter="all">Products</button>
+                <button class="filter-btn primary-toggle px-6 py-2 rounded-full border border-white text-[10px] font-bold uppercase tracking-widest transition-all hover:text-white" data-target="collections-filters" data-filter="collections">Collections</button>
+            </div>
+            <!--Product filters-->
+            <div id="products-filters" class="filter-row flex flex-wrap gap-3">
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-red-400 hover:text-white transition-all"
+                data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-red-400 hover:text-white transition-all"
+                data-filter="hoodies">Hoodies</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-red-400 hover:text-white transition-all"
+                data-filter="tees">Tees</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="tops">Tops</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="tracksuits">Tracksuits</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="sweats">Sweats</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="jeans">Jeans</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="jackets">Jackets</button>        
+            </div>
+            <!--Collection filter-->
+            <div id="collections-filters" class="filter-row hidden flex flex-wrap gap-3">
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="bloodline">The Bloodline</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="primals">The Primals</button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-zinc-800 text-zinc-500 text-[10px] font-bold uppercase tracking-widest hover:border-white hover:text-white transition-all"
+                data-filter="divas">Divas Only</button>    
+            </div>
+        </header>
+
+        <div id="collection-showcase" class="hidden mb-16 flex flex-wrap gap-3 mb-6 pb-8 border-b border-zinc-700">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <!-- LEFT: Image Slider -->
+                <div class="relative rounded-3xl overflow-hidden border border-zinc-900">
+                    <img id="collection-image" src="" class="w-full h-[400px] object-cover transition-all duration-500">
+                </div>
+                <!-- RIGHT: Text Content -->
+                <div>
+                    <h2 id="collection-title" class="text-2xl font-bold text-center mb-10 tracking-widest uppercase">All Products</h2>
+                    <p id="collection-description" class="text-zinc-400 mb-4"></p>
+                    <p id="collection-meta" class="text-xs text-zinc-600 uppercase tracking-widest mb-6"></p>
+                    <div class="border-t border-zinc-900 pt-6"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+            <!-- Product Item -->
+            <div class="product-card group" data-category="hoodies" data-collection="bloodline">
+                <div class="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 relative border border-zinc-900">
+                    <img src=".src/odeshi-bfbloodline-black-hoodie.jpeg" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+                    <div class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        <button class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase text-xs tracking-tighter shadow-2xl">Add to Bag</button>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-tight">Bloodline Hoodie</h4>
+                        <p class="text-zinc-500 text-xs">Heavyweight / Midnight</p>
+                    </div>
+                    <span class="font-mono text-lg font-bold text-zinc-300">$120</span>
+                </div>
+            </div>
+
+            <!-- More products can be added here following the same structure -->
+            <div class="product-card group" data-category="tees" data-collection="primals">
+                <div class="aspect-[3/4] overflow-hidden rounded-3xl bg-zinc-900 relative border border-zinc-900">
+                    <img src=".src/odeshi-primal-black.jpeg" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        <button class="w-full bg-white text-black py-4 rounded-2xl font-black uppercase text-xs tracking-tighter shadow-2xl">Add to Bag</button>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-lg uppercase tracking-tight">Primal Tee</h4>
+                        <p class="text-zinc-500 text-xs">Nylon Cotton Blend</p>
+                    </div>
+                    <span class="font-mono text-lg font-bold text-zinc-300">$60</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-24 px-10 border-t border-zinc-900">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <img src=".src\odeshi-2.png" class="h-4 w-auto mix-blend-difference mb-5" alt="Odeshi logo">
+                <p class="text-zinc-500 max-w-sm mb-8">Forged in the heart of the city. We create armor for the bold, the defiant, and the unseen.</p>
+                <div class="flex gap-4">
+                     <div class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer"><i data-lucide="instagram" class="w-4 h-4"></i></div>
+                     <div class="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer"><i data-lucide="twitter" class="w-4 h-4"></i></div>
+                </div>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Explore</h5>
+                <ul class="flex flex-col gap-3 text-zinc-500 text-sm">
+                    <li><a href="shop.html" class="hover:text-white transition-colors">Latest Drops</a></li>
+                    <li><a href="lookbook.html" class="hover:text-white transition-colors">Lookbook</a></li>
+                    <li><a href="bts.html" class="hover:text-white transition-colors">Behind the Scenes</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Archive</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase text-xs tracking-widest mb-6">Support</h5>
+                <ul class="flex flex-col gap-3 text-zinc-500 text-sm">
+                    <li><a href="sizeguide.html" class="hover:text-white transition-colors">Size Guide</a></li>
+                    <li><a href="shipping.html" class="hover:text-white transition-colors">Shipping</a></li>
+                    <li><a href="returns.html" class="hover:text-white transition-colors">Returns</a></li>
+                    <li><a href="connect.html" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-20 pt-10 border-t border-zinc-900 text-center">
+            <p class="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.4em]">© 2026 ODESHI CO. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        /* =====================
+        DYNAMIC ISLAND
+        ===================== */
+        const island = document.getElementById('dynamic-island');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                island.style.transform = 'translateX(-50%) translateY(4px) scale(0.95)';
+                island.style.background = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                island.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+                island.style.background = 'rgba(15, 15, 15, 0.25)';
+            }
+        });
+
+
+        /* =====================
+        FILTER SYSTEM
+        ===================== */
+
+        const primaryToggles = document.querySelectorAll('.primary-toggle');
+        const filterRows = document.querySelectorAll('.filter-row');
+        const products = document.querySelectorAll('.product-card');
+        const showcase = document.getElementById('collection-showcase');
+
+        const collectionData = {
+            bloodline: {
+                title: "The Bloodline",
+                description: "Forged from legacy and rebellion. The Bloodline represents inherited strength and unbreakable identity.",
+                meta: "5 PIECES / HOODIES • TEES • TRACKSUITS",
+                image: ".src/odeshi-bfbloodline-black-hoodie.jpeg"
+            },
+            primals: {
+                title: "The Primals",
+                description: "Raw. Instinctive. Untamed. The Primals strip fashion back to its most dominant essence.",
+                meta: "3 PIECES / TEES • TOPS",
+                image: ".src/odeshi-primal-black.jpeg"
+            },
+            divas: {
+                title: "Divas Only",
+                description: "Precision. Power. Presence. A collection built for bold silhouettes and sharper energy.",
+                meta: "4 PIECES / JACKETS • JEANS",
+                image: ".src/odeshi-primal-black.jpeg"
+            }
+        };
+
+
+        /* PRIMARY TOGGLE */
+
+        primaryToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+
+                primaryToggles.forEach(t => t.classList.remove('active'));
+                toggle.classList.add('active');
+
+                const targetRowId = toggle.dataset.target;
+
+                filterRows.forEach(row => {
+                    row.classList.add('hidden');
+                    if (row.id === targetRowId) {
+                        row.classList.remove('hidden');
+                    }
+                });
+
+                showcase.classList.add('hidden');
+                resetRow(targetRowId);
+            });
+        });
+
+
+        /* FILTER BUTTONS */
+
+        document.querySelectorAll('.filter-row .filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+
+                const row = btn.closest('.filter-row');
+                row.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                applyFilter(btn, row.id);
+            });
+        });
+
+
+        function applyFilter(btn, rowId) {
+
+            const value = btn.dataset.filter;
+
+            if (rowId === "products-filters") {
+
+                showcase.classList.add('hidden');
+
+                products.forEach(product => {
+                    const category = product.dataset.category;
+                    product.style.display = (value === "all" || category === value) ? "" : "none";
+                });
+
+            }
+
+            if (rowId === "collections-filters") {
+
+                products.forEach(product => {
+                    const collection = product.dataset.collection;
+                    product.style.display = (collection === value) ? "" : "none";
+                });
+
+                showCollection(value);
+            }
+        }
+
+
+        /* RESET */
+
+        function resetRow(rowId) {
+
+            const row = document.getElementById(rowId);
+            const firstBtn = row.querySelector('.filter-btn');
+
+            row.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            firstBtn.classList.add('active');
+
+            applyFilter(firstBtn, rowId);
+        }
+
+
+        /* SHOWCASE */
+
+        function showCollection(key) {
+
+            const data = collectionData[key];
+            if (!data) return;
+
+            document.getElementById('collection-title').textContent = data.title;
+            document.getElementById('collection-description').textContent = data.description;
+            document.getElementById('collection-meta').textContent = data.meta;
+            document.getElementById('collection-image').src = data.image;
+
+            showcase.classList.remove('hidden');
+        }
+
+
+        /* DEFAULT STATE */
+
+        document.querySelector('[data-target="products-filters"]').classList.add('active');
+        document.getElementById('products-filters').classList.remove('hidden');
+        resetRow("products-filters");
+
+    </script>
+</body>
+</html>

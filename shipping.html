@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIPPING | ODESHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600">
+
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <a href="index.html"><img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Logo"></a>
+        <div class="flex items-center gap-7"><i data-lucide="circle-user" class="w-6 h-6"></i><i data-lucide="heart" class="w-6 h-6"></i><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+    </div>
+
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Home</a>
+            <a href="shop.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Shop</a>
+            <a href="bts.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">BTS</a>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-6 md:px-20 max-w-4xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-16">Logistics</h1>
+        
+        <div class="space-y-20">
+            <section>
+                <h3 class="font-bold uppercase tracking-widest text-xs mb-6 text-zinc-500">Processing</h3>
+                <p class="text-xl leading-relaxed">Orders are processed within 2-4 business days. During high-volume "Drop" periods, processing may take up to 7 business days.</p>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-zinc-900 pt-12">
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-xs mb-4 text-zinc-500">Domestic (USA)</h3>
+                    <p class="text-zinc-400">Standard: 3-5 Business Days<br>Express: 1-2 Business Days</p>
+                </div>
+                <div>
+                    <h3 class="font-bold uppercase tracking-widest text-xs mb-4 text-zinc-500">International</h3>
+                    <p class="text-zinc-400">DHL Express: 5-7 Business Days<br>Import duties and taxes are the responsibility of the recipient.</p>
+                </div>
+            </section>
+
+            <section class="bg-zinc-950 p-10 rounded-3xl border border-zinc-900">
+                <h3 class="font-bold uppercase tracking-widest text-xs mb-4">Note on Pre-Orders</h3>
+                <p class="text-sm text-zinc-500 leading-relaxed font-mono italic">Items marked as [PRE-ORDER] will follow the shipping timeline specified on the product page. If your order contains both in-stock and pre-order items, the entire order will ship once all items are available.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-black py-20 px-10 border-t border-zinc-900 text-center text-[10px] font-mono text-zinc-700 tracking-[0.4em]">
+        © 2026 ODESHI CO. LOGISTICS V2.1
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

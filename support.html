@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPPORT | ODESHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        .faq-item { border-bottom: 1px solid #18181b; }
+        .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.55), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600">
+
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <a href="index.html"><img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Logo"></a>
+        <div class="flex items-center gap-7">
+            <a href="profile.html"><i data-lucide="circle-user" class="w-6 h-6"></i></a>
+            <a href="wishlist.html"><i data-lucide="heart" class="w-6 h-6"></i></a>
+            <a href="cart.html"><i data-lucide="shopping-cart" class="w-6 h-6"></i></a>
+        </div>
+    </div>
+
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Home</a>
+            <a href="shop.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Shop</a>
+            <a href="bts.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">BTS</a>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-6 md:px-20 max-w-4xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-16">Help Center</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <a href="returns.html" class="p-8 border border-zinc-900 rounded-3xl hover:bg-zinc-950 transition-colors group">
+                <i data-lucide="refresh-cw" class="w-8 h-8 mb-6 group-hover:rotate-180 transition-transform duration-500"></i>
+                <h3 class="text-xl font-bold uppercase mb-2">Returns & Exchanges</h3>
+                <p class="text-zinc-500 text-sm">Initiate a return or check your eligibility.</p>
+            </a>
+            <a href="shipping.html" class="p-8 border border-zinc-900 rounded-3xl hover:bg-zinc-950 transition-colors group">
+                <i data-lucide="truck" class="w-8 h-8 mb-6"></i>
+                <h3 class="text-xl font-bold uppercase mb-2">Shipping Logistics</h3>
+                <p class="text-zinc-500 text-sm">Tracking, delivery times, and global rates.</p>
+            </a>
+        </div>
+
+        <section class="space-y-8">
+            <h2 class="text-xs font-mono uppercase tracking-[0.3em] text-zinc-500 mb-10">Frequently Asked</h2>
+            <div class="faq-item py-6">
+                <h4 class="font-bold uppercase text-sm mb-2">When is the next drop?</h4>
+                <p class="text-zinc-500 text-sm">Drop dates are announced via our Instagram and newsletter. Most releases are extremely limited.</p>
+            </div>
+            <div class="faq-item py-6">
+                <h4 class="font-bold uppercase text-sm mb-2">Do you ship internationally?</h4>
+                <p class="text-zinc-500 text-sm">Yes, we ship to over 50 countries via DHL Express. Customs and duties are handled at checkout for most regions.</p>
+            </div>
+            <div class="faq-item py-6">
+                <h4 class="font-bold uppercase text-sm mb-2">How do I track my order?</h4>
+                <p class="text-zinc-500 text-sm">Once shipped, a tracking number is sent to your identity email automatically.</p>
+            </div>
+        </section>
+
+        <div class="mt-24 text-center">
+            <p class="text-zinc-500 text-xs uppercase font-mono mb-6">Still need assistance?</p>
+            <a href="connect.html" class="inline-block bg-white text-black px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition-all">Contact Intelligence</a>
+        </div>
+    </main>
+
+    <footer class="bg-black py-20 px-10 border-t border-zinc-900 text-center text-[10px] font-mono text-zinc-700 tracking-[0.4em]">
+        © 2026 ODESHI CO. SUPPORT TERMINAL
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

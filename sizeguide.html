@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIZE GUIDE | ODESHI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
+        th, td { border-bottom: 1px solid #18181b; padding: 1.5rem 1rem; text-align: left; }
+        th { font-family: 'JetBrains Mono'; font-size: 0.75rem; color: #71717a; text-transform: uppercase; }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-red-600">
+
+    <div class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center header-gradient">
+        <a href="index.html"><img src=".src/odeshi-2.png" class="h-6 w-auto mix-blend-difference" alt="Logo"></a>
+        <div class="flex items-center gap-7"><i data-lucide="circle-user" class="w-6 h-6"></i><i data-lucide="heart" class="w-6 h-6"></i><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+    </div>
+
+    <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
+        <nav class="flex items-center gap-1">
+            <a href="index.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Home</a>
+            <a href="shop.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">Shop</a>
+            <a href="bts.html" class="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-60 hover:opacity-100">BTS</a>
+        </nav>
+    </div>
+
+    <main class="pt-40 pb-24 px-6 md:px-20 max-w-5xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-12">Dimensions</h1>
+        
+        <section class="mb-20">
+            <h2 class="text-xl font-bold uppercase tracking-widest border-b border-zinc-800 pb-4 mb-8">Hoodies & Outerwear</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr><th>Size</th><th>Chest (In)</th><th>Length (In)</th><th>Sleeve (In)</th></tr>
+                    </thead>
+                    <tbody class="text-sm font-mono">
+                        <tr><td>S</td><td>22.5</td><td>26.5</td><td>24.0</td></tr>
+                        <tr><td>M</td><td>23.5</td><td>27.5</td><td>24.5</td></tr>
+                        <tr><td>L</td><td>24.5</td><td>28.5</td><td>25.0</td></tr>
+                        <tr><td>XL</td><td>26.0</td><td>29.5</td><td>25.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm text-zinc-500 leading-relaxed">
+            <div>
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-4">Fit Guide</h4>
+                <p>Odeshi garments are engineered for an oversized, boxy fit. We recommend ordering your true size for the intended silhouette, or sizing down for a more standard fit.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-4">Measurement Method</h4>
+                <p>Chest: Measured across the chest 1" below the armhole. <br>Length: Measured from the highest point of the shoulder to the bottom hem.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-20 px-10 border-t border-zinc-900 text-center text-[10px] font-mono text-zinc-700 tracking-[0.4em]">
+        © 2026 ODESHI CO. ALL RIGHTS RESERVED.
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
