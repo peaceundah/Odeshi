@@ -178,62 +178,50 @@
 
     <script>
         lucide.createIcons();
-    
+        
+        // Newsletter Form Submission
         document.getElementById("newsletter-form").addEventListener("submit", function(e){
             e.preventDefault();
             const success = document.getElementById("newsletter-success");
-            success.classList.remove("opacity-0");
+            success.classList.remove("opacity-0"); // Show success message
         });
 
+        // Support Form Submission
+        const supportForm = document.getElementById("support-form");
         document.getElementById("support-form").addEventListener("submit", function(e){
             e.preventDefault();
             const success = document.getElementById("support-success");
-            success.classList.remove("opacity-0");
-        });
-
-        const issueType = document.getElementById("issue-type");
-        issueType.addEventListener("change", function(){
-            if(this.value === "complaint"){
-                this.classList.add("text-red-400");
-                this.classList.remove("text-white");
-            } else {
-                this.classList.remove("text-red-400");
-                this.classList.add("text-white");
-            }
+            success.classList.remove("opacity-0"); // Show success message
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-            // This ensures the JavaScript only runs AFTER the entire HTML structure has loaded.
-            // Prevents errors like "cannot read property of null".
+            // Dropdown Elements
             const trigger = document.getElementById("dropdown-trigger");
             const menu = document.getElementById("dropdown-menu");
             const selected = document.getElementById("selected-option");
             const arrow = document.getElementById("dropdown-arrow");
             const items = document.querySelectorAll(".dropdown-item");
             const dropdownWrapper = document.getElementById("custom-dropdown");
-            const supportForm = document.getElementById("support-form");
 
             let isOpen = false;
+
+            // Open dropdown
             function openDropdown() {
-                // Remove hidden styles
                 menu.classList.remove("opacity-0", "scale-95", "pointer-events-none");
-                // Rotate arrow upward
                 arrow.classList.add("rotate-180");
                 isOpen = true;
             }
 
+            // Close dropdown
             function closeDropdown() {
-                // Re-apply hidden styles
                 menu.classList.add("opacity-0", "scale-95", "pointer-events-none");
-                // Reset arrow direction
                 arrow.classList.remove("rotate-180");
                 isOpen = false;
             }
 
+            // Toggle dropdown on button click
             trigger.addEventListener("click", function(e) {
-
-                e.stopPropagation();
-                // Prevents the document click listener from immediately closing the dropdown
+                e.stopPropagation(); // Prevent document click from closing immediately
                 if (isOpen) {
                     closeDropdown();
                 } else {
@@ -241,12 +229,14 @@
                 }
             });
 
+            // Dropdown item click
             items.forEach(item => {
                 item.addEventListener("click", function() {
-                    selected.textContent = item.textContent;
+                    selected.textContent = item.textContent; // Set selected text
                     selected.classList.remove("text-white/60");
                     selected.classList.add("text-white");
 
+                    // Optional: add ring on complaint selection
                     if (item.dataset.value === "complaint") {
                         supportForm.classList.add("ring-1", "ring-[#df5858]/50");
                     } else {
@@ -257,15 +247,13 @@
                 });
             });
 
-
+            // Close dropdown when clicking outside
             document.addEventListener("click", function(e) {
                 if (!dropdownWrapper.contains(e.target)) {
                     closeDropdown();
                 }
-
             });
         });
-        </script>
     </script>
 </body>
 </html>
