@@ -12,7 +12,20 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
-        #dynamic-island { background: rgba(15, 15, 15, 0.25); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.6s ease; }
+        #dynamic-island {
+            background: rgba(15, 15, 15, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #dynamic-island:hover {
+            background: rgba(25, 25, 25, 0.9);
+            transform: translateX(-50%) translateY(4px) scale(1.02);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
         .nav-link { opacity: 0.6; transition: 0.3s; }
         .nav-link:hover { opacity: 1; }
         .header-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0)); backdrop-filter: blur(12px); }
@@ -30,12 +43,15 @@
         <div class="flex items-center gap-7"><i data-lucide="circle-user" class="w-6 h-6"></i><i data-lucide="heart" class="w-6 h-6"></i><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
     </div>
 
+    <!-- DYNAMIC ISLAND -->
     <div id="dynamic-island" class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center px-2 py-2 rounded-full border">
         <nav class="flex items-center gap-1">
             <a href="index.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Home</a>
-            <a href="shop.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Shop</a>
+            <a href="shop.html" class="nav-link active px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white">Shop</a>
             <a href="bts.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white whitespace-nowrap hidden sm:block">Behind the Scenes</a>
             <a href="connect.html" class="nav-link px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hidden sm:block">Connect</a>
+            <div class="w-[1px] h-4 bg-zinc-800 mx-2"></div>
+            <button class="p-2 text-zinc-400 hover:text-white"><i data-lucide="search" class="w-4 h-4"></i></button>
         </nav>
     </div>
 
